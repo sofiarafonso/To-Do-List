@@ -20,9 +20,9 @@
   border-radius: 12px;
   display: flex;
   flex-direction: column;
-  -webkit-box-shadow: 10px 10px 5px 6px rgba(0,0,0,0.75);
--moz-box-shadow: 10px 10px 5px 6px rgba(0,0,0,0.75);
-box-shadow: 10px 10px 5px 6px rgba(0,0,0,0.75);
+  -webkit-box-shadow: 10px 10px 5px 6px rgba(0, 0, 0, 0.75);
+  -moz-box-shadow: 10px 10px 5px 6px rgba(0, 0, 0, 0.75);
+  box-shadow: 10px 10px 5px 6px rgba(0, 0, 0, 0.75);
 }
 
 #icons {
@@ -89,7 +89,8 @@ box-shadow: 10px 10px 5px 6px rgba(0,0,0,0.75);
       border-top: 3px dashed rgb(32, 34, 37);
     }
 
-    min-height: 85px;
+    padding-top: 18px;
+    padding-bottom: 18px;
     align-items: center;
 
     .paizinho {
@@ -123,9 +124,13 @@ box-shadow: 10px 10px 5px 6px rgba(0,0,0,0.75);
         border: 0px;
         outline: 0px;
         max-width: 90%;
-        &::-webkit-scrollbar {
-          display: none;
+        word-wrap:break-word;
+
+        &:empty:before {
+          content: attr(data-placeholder);
+          color: rgb(32, 34, 37);
         }
+
       }
     }
 

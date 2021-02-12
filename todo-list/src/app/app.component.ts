@@ -18,15 +18,15 @@ export class AppComponent {
   notes: Note[] = [];
   selected_note: number;
   editing=false;
-  id_counter=0
+  id_counter=0;
+  input=-1;
   constructor(){
     
   }
   new_note(){
     let nota= new Note();
     nota.id= this.id_counter;
-    nota.title= "Insert Title";
-    nota.text="Describe your note here";
+    this.input=this.id_counter;
     this.notes.push(nota);
     this.id_counter+=1;
     this.editing=false;

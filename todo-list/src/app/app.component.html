@@ -11,9 +11,10 @@
       <ng-container *ngFor="let note of notes">
         <div class="nota" [ngClass]="{ativa: selected_note==note.id}" >
           <div class="paizinho">
-            <input class="title" [(ngModel)]="note.title" [disabled]="selected_note!=note.id || !editing" spellcheck="false" maxlength="25"/>
-            <textarea class="text" [(ngModel)]="note.text" [disabled]="selected_note!=note.id || !editing" spellcheck="false" wrap="on"> </textarea>
+            <input class="title" [(ngModel)]="note.title" focus= "note.id == input"  [disabled]="note.id != input && (selected_note!=note.id || !editing ) " spellcheck="false" maxlength="25" placeholder = "Insert Title"/>
+            <span class="text" role="textbox"  [attr.contenteditable]="!( note.id!=input && (selected_note != note.id || !editing))" data-placeholder="Describe your note here" spellcheck="false" (input)="note.text = $event.target.innerText" [textContent]="note.text" ></span>
          </div>
+
          <div class="check">
            <ng-container *ngIf="selected_note==note.id"> <img src="../assets/check.png" class="icon" (click)="select(note.id)"/> </ng-container>
            <ng-container *ngIf="selected_note!=note.id"> <div class="circle" (click)="select(note.id)">  </div> </ng-container>
